@@ -1,52 +1,67 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const addNoteBtn = document.getElementById('addNoteBtn');
-    const notesList = document.getElementById('notesList');
-    const noteInput = document.getElementById('noteInput');
-    const editProfileBtn = document.getElementById('editProfileBtn');
-    const editProfileForm = document.getElementById('editProfileForm');
-    const closeModal = document.querySelector('.close');
-    const profileForm = document.getElementById('profileForm');
+document.addEventListener("DOMContentLoaded", function () {
+    const editProfileBtn = document.getElementById("editProfileBtn");
+    const modal = document.getElementById("editProfileForm");
+    const closeBtn = document.getElementsByClassName("close")[0];
+    const profileForm = document.getElementById("profileForm");
+    const profileName = document.getElementById("profileName");
+    const aboutMe = document.getElementById("aboutMe");
+    const interests = document.getElementById("interests");
+    const projects = document.getElementById("projects");
+    const lifeEvents = document.getElementById("lifeEvents");
+    const profilePic = document.getElementById("profilePic");
+    const profilePicPreview = document.getElementById("profilePicPreview");
+    const profilePicInput = document.getElementById("profilePicInput");
+    const exploreButton = document.getElementById("exploreButton");
 
-    // Open the edit profile modal
-    editProfileBtn.addEventListener('click', () => {
-        // Fill form fields with current profile data
-        document.getElementById('nameInput').value = document.getElementById('profileName').textContent;
-        document.getElementById('aboutInput').value = document.getElementById('aboutMe').textContent;
-        document.getElementById('interestsInput').value = document.getElementById('interests').textContent;
-        document.getElementById('projectsInput').value = document.getElementById('projects').textContent;
-        document.getElementById('lifeEventsInput').value = document.getElementById('lifeEvents').textContent;
+    // Open modal to edit profile
+    editProfileBtn.onclick = function () {
+        modal.style.display = "flex";
+    };
 
-        editProfileForm.style.display = 'flex';
-    });
+    // Close modal when clicking the close button
+    closeBtn.onclick = function () {
+        modal.style.display = "none";
+    };
 
-    // Close the edit profile modal
-    closeModal.addEventListener('click', () => {
-        editProfileForm.style.display = 'none';
-    });
-
-    // Handle form submission
-    profileForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-
-        // Update profile data
-        document.getElementById('profileName').textContent = document.getElementById('nameInput').value;
-        document.getElementById('aboutMe').textContent = document.getElementById('aboutInput').value;
-        document.getElementById('interests').textContent = document.getElementById('interestsInput').value;
-        document.getElementById('projects').textContent = document.getElementById('projectsInput').value;
-        document.getElementById('lifeEvents').textContent = document.getElementById('lifeEventsInput').value;
-
-        // Hide the modal
-        editProfileForm.style.display = 'none';
-    });
-
-    // Add a new note
-    addNoteBtn.addEventListener('click', () => {
-        const noteText = noteInput.value.trim();
-        if (noteText) {
-            const li = document.createElement('li');
-            li.textContent = noteText;
-            notesList.appendChild(li);
-            noteInput.value = ''; // Clear the input field
+    // Close modal when clicking outside the modal content
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
         }
-    });
+    };
+
+    // Save changes to the profile
+    profileForm.onsubmit = function (event) {
+        event.preventDefault(); // Prevent form from submitting normally
+        profileName.innerText = document.getElementById("nameInput").value;
+        aboutMe.innerText = document.getElementById("aboutInput").value;
+        interests.innerText = document.getElementById("interestsInput").value;
+        projects.innerText = document.getElementById("projectsInput").value;
+        lifeEvents.innerText = document.getElementById("lifeEventsInput").value;
+
+        if (profilePicInput.files && profilePicInput.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                profilePic.src = e.target.result;
+            };
+            reader.readAsDataURL(profilePicInput.files[0]);
+        }
+
+        modal.style.display = "none";
+    };
+
+    // Search profiles
+    document.getElementById("searchButton").onclick = function () {
+        const searchInput = document.getElementById("searchInput").value.toLowerCase();
+        if (searchInput.includes("shalvi dalal")) {
+            alert("Profile found: Shalvi Dalal");
+        } else {
+            alert("Profile not found.");
+        }
+    };
+
+    // Simulate exploring different profiles
+    exploreButton.onclick = function () {
+        alert("Exploring different profiles feature coming soon!");
+    };
 });
