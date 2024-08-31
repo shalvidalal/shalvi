@@ -3,7 +3,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(45deg, #f3a1c1, #fbbd61, #c78bff); /* Instagram-like gradient */
+    background: linear-gradient(45deg, #6a1b9a, #ab47bc); /* Medium to Dark Purple Gradient */
     color: #333;
 }
 
@@ -37,106 +37,120 @@ nav a:hover {
 
 main {
     padding: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.search {
+    margin-bottom: 2em;
+    display: flex;
+    justify-content: center;
+}
+
+.search input {
+    padding: 10px;
+    border-radius: 10px 0 0 10px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+}
+
+.search button {
+    padding: 10px;
+    border-radius: 0 10px 10px 0;
+    border: 1px solid #ddd;
+    background: #ff7e5f; /* Orange button */
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.3s;
+}
+
+.search button:hover {
+    background: #feb47b; /* Light orange on hover */
+}
+
+/* Profile Section */
 .profile {
     text-align: center;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 15px; /* Rounded corners */
     padding: 2em;
+    width: 100%;
+    max-width: 800px;
     margin-bottom: 2em;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensures padding is included in the width */
+    min-height: 200px; /* Ensures a consistent height */
 }
 
 .profile h2 {
     margin: 0;
-    color: #ff7e5f;
+    color: #6a1b9a; /* Purple color for profile name */
 }
 
 .profile-pic {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 5px solid #feb47b;
+    border: 5px solid #ab47bc; /* Darker purple border */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+.profile-pic-preview {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #ab47bc;
+    margin-top: 10px;
+    display: none; /* Hidden by default */
+}
+
 button {
-    background: #ff7e5f;
+    background: #ff7e5f; /* Orange button */
     border: none;
     color: white;
     padding: 0.5em 1.5em;
     font-size: 1em;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background 0.3s;
 }
 
 button:hover {
-    background: #feb47b;
+    background: #feb47b; /* Light orange on hover */
 }
 
-.content {
-    background: #fff;
-    border-radius: 10px;
-    padding: 2em;
-    margin-bottom: 2em;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
+/* Section Styles with Gradient Backgrounds */
 .section {
-    margin-bottom: 1.5em;
-}
-
-.section h3 {
-    margin-top: 0;
-    color: #ff7e5f;
-}
-
-.section p {
-    background: linear-gradient(90deg, #00c6ff, #0072ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-family: 'Times New Roman', serif; /* Apply Times New Roman font */
-    font-weight: 600; /* Semi-bold text */
-    font-size: 1.1em; /* Adjust font size as needed */
-}
-
-.notes {
     background: #fff;
-    border-radius: 10px;
+    border-radius: 15px; /* Rounded corners */
     padding: 2em;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 2em; /* More space between sections */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensures padding is included in the width */
+    min-height: 200px; /* Ensures a consistent height */
+    color: #333;
+    font-weight: 600; /* Semi-bold text */
 }
 
-#notesList {
-    list-style-type: none;
-    padding: 0;
+/* Different Gradient Colors for Each Section */
+#aboutMeSection {
+    background: linear-gradient(45deg, #ff9a9e, #fecfef); /* Light red to pink gradient */
 }
 
-#notesList li {
-    padding: 0.5em;
-    border-bottom: 1px solid #ddd;
+#interestsSection {
+    background: linear-gradient(45deg, #a1c4fd, #c2e9fb); /* Light blue gradient */
 }
 
-#noteInput {
-    width: 100%;
-    height: 100px;
-    margin-top: 1em;
-    padding: 0.5em;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: 1em;
+#projectsSection {
+    background: linear-gradient(45deg, #fddb92, #d1fdff); /* Light gold to blue gradient */
 }
 
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+#lifeEventsSection {
+    background: linear-gradient(45deg, #a8ff78, #78ffd6); /* Light green gradient */
 }
 
 /* Modal Styles */
@@ -161,7 +175,7 @@ footer {
     border: 1px solid #888;
     width: 80%;
     max-width: 600px;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -189,28 +203,29 @@ footer {
     font-weight: bold;
 }
 
-#profileForm input, 
+#profileForm input[type="text"],
 #profileForm textarea {
     margin-top: 5px;
     padding: 10px;
+    font-size: 1em;
     border-radius: 5px;
     border: 1px solid #ddd;
 }
 
 #profileForm button {
     margin-top: 20px;
-    background: #ff7e5f;
+    background: #ff7e5f; /* Orange button */
     border: none;
     color: white;
     padding: 0.5em 1.5em;
     font-size: 1em;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background 0.3s;
 }
 
 #profileForm button:hover {
-    background: #feb47b;
+    background: #feb47b; /* Light orange on hover */
 }
 
 /* Responsive Design */
@@ -230,7 +245,7 @@ footer {
         padding: 1em;
     }
 
-    .profile, .content, .notes {
+    .profile, .section {
         padding: 1em;
     }
 }
