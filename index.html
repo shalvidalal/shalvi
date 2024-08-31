@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WikiMe Profile</title>
+    <title>WikiMe - Profile</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,61 +12,65 @@
         <h1>WikiMe</h1>
         <nav>
             <a href="#">Home</a>
-            <a href="#">Explore</a>
-            <a href="#">Messages</a> <!-- Removed Notifications tab -->
-            <a href="#" id="editProfileBtn">Edit Profile</a>
+            <a href="#">My Profile</a>
+            <a href="#" id="exploreButton">Explore</a>
         </nav>
     </header>
+
     <main>
+        <div class="search">
+            <input type="text" id="searchInput" placeholder="Search profiles...">
+            <button id="searchButton">Search</button>
+        </div>
+
         <div class="profile">
-            <img src="my-pic.jpg" alt="Profile Picture" class="profile-pic">
-            <h2 id="profileName">Your Name</h2>
+            <h2 id="profileName">Shalvi Dalal</h2>
+            <img id="profilePic" src="default-profile.png" alt="Profile Picture" class="profile-pic">
+            <img id="profilePicPreview" src="" alt="Profile Picture Preview" class="profile-pic-preview">
             <button id="editProfileBtn">Edit Profile</button>
         </div>
-        <div class="content">
-            <div class="section">
-                <h3>About Me</h3>
-                <p id="aboutMe">This is a brief description about me.</p>
-            </div>
-            <div class="section">
-                <h3>Interests</h3>
-                <p id="interests">Here are some of my interests.</p>
-            </div>
-            <div class="section">
-                <h3>Projects</h3>
-                <p id="projects">Details about my projects.</p>
-            </div>
-            <div class="section">
-                <h3>Life Events</h3>
-                <p id="lifeEvents">Significant events in my life.</p>
-            </div>
+
+        <div class="section" id="aboutMeSection">
+            <h3>About Me</h3>
+            <p id="aboutMe">This is where you tell the world about yourself!</p>
         </div>
-        <div class="notes">
-            <h3>Notes</h3>
-            <textarea id="noteInput" placeholder="Write a note..."></textarea>
-            <button id="addNoteBtn">Add Note</button>
-            <ul id="notesList"></ul>
+        <div class="section" id="interestsSection">
+            <h3>Interests</h3>
+            <p id="interests">Share your hobbies and passions here!</p>
+        </div>
+        <div class="section" id="projectsSection">
+            <h3>Projects</h3>
+            <p id="projects">List your projects or initiatives you're proud of!</p>
+        </div>
+        <div class="section" id="lifeEventsSection">
+            <h3>Life Events</h3>
+            <p id="lifeEvents">Highlight important moments and milestones.</p>
         </div>
     </main>
-    <footer>
-        <p>&copy; 2024 WikiMe. All rights reserved.</p>
-    </footer>
 
-    <!-- Edit Profile Modal -->
+    <!-- Modal for editing profile -->
     <div id="editProfileForm" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <form id="profileForm">
+                <label for="profilePicInput">Upload Profile Picture:</label>
+                <input type="file" id="profilePicInput" accept="image/*">
+
                 <label for="nameInput">Name:</label>
-                <input type="text" id="nameInput" name="name">
+                <input type="text" id="nameInput" placeholder="Enter your name">
+
                 <label for="aboutInput">About Me:</label>
-                <textarea id="aboutInput" name="about"></textarea>
+                <textarea id="aboutInput" placeholder="Tell us about yourself..."></textarea>
+
                 <label for="interestsInput">Interests:</label>
-                <textarea id="interestsInput" name="interests"></textarea>
+                <textarea id="interestsInput" placeholder="Share your hobbies and interests..."></textarea>
+
                 <label for="projectsInput">Projects:</label>
-                <textarea id="projectsInput" name="projects"></textarea>
+                <textarea id="projectsInput" placeholder="What projects have you worked on?"></textarea>
+
                 <label for="lifeEventsInput">Life Events:</label>
-                <textarea id="lifeEventsInput" name="lifeEvents"></textarea>
+                <textarea id="lifeEventsInput" placeholder="Share key moments from your life..."></textarea>
+
                 <button type="submit">Save Changes</button>
             </form>
         </div>
