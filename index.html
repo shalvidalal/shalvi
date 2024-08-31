@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WikiMe Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>WikiMe</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Explore</a>
+            <a href="#">Notifications</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile">
+            <h2 id="profileName">Profile Name</h2>
+            <img src="my-pic.jpg" alt="Profile Picture" class="profile-pic">
+            <button id="editProfileBtn">Edit Profile</button>
+        </section>
+
+        <section class="content">
+            <div class="section">
+                <h3>About Me</h3>
+                <p id="aboutMe">This is a brief description about me.</p>
+            </div>
+            <div class="section">
+                <h3>Interests</h3>
+                <p id="interests">Here are some of my interests.</p>
+            </div>
+            <div class="section">
+                <h3>Projects</h3>
+                <p id="projects">Details about my projects.</p>
+            </div>
+            <div class="section">
+                <h3>Life Events</h3>
+                <p id="lifeEvents">Notable life events.</p>
+            </div>
+        </section>
+
+        <section class="notes">
+            <h3>Notes</h3>
+            <ul id="notesList">
+                <!-- Notes will be dynamically added here -->
+            </ul>
+            <textarea id="noteInput" placeholder="Leave a note..."></textarea>
+            <button id="addNoteBtn">Add Note</button>
+        </section>
+
+        <!-- Edit Profile Form -->
+        <div id="editProfileForm" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Edit Profile</h2>
+                <form id="profileForm">
+                    <label for="nameInput">Name:</label>
+                    <input type="text" id="nameInput" required>
+                    
+                    <label for="aboutInput">About Me:</label>
+                    <textarea id="aboutInput" required></textarea>
+                    
+                    <label for="interestsInput">Interests:</label>
+                    <textarea id="interestsInput" required></textarea>
+                    
+                    <label for="projectsInput">Projects:</label>
+                    <textarea id="projectsInput" required></textarea>
+                    
+                    <label for="lifeEventsInput">Life Events:</label>
+                    <textarea id="lifeEventsInput" required></textarea>
+                    
+                    <button type="submit">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 WikiMe. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
