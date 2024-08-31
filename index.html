@@ -12,18 +12,17 @@
         <nav>
             <a href="#">Home</a>
             <a href="#">Explore</a>
-            <a href="#">Notifications</a>
+            <a href="#">Messages</a> <!-- Removed Notifications tab -->
+            <a href="#" id="editProfileBtn">Edit Profile</a>
         </nav>
     </header>
-
     <main>
-        <section class="profile">
-            <h2 id="profileName">Profile Name</h2>
-            <img src="my-pic.jpg" alt="Profile Picture" class="profile-pic">
+        <div class="profile">
+            <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+            <h2 id="profileName">Your Name</h2>
             <button id="editProfileBtn">Edit Profile</button>
-        </section>
-
-        <section class="content">
+        </div>
+        <div class="content">
             <div class="section">
                 <h3>About Me</h3>
                 <p id="aboutMe">This is a brief description about me.</p>
@@ -38,49 +37,39 @@
             </div>
             <div class="section">
                 <h3>Life Events</h3>
-                <p id="lifeEvents">Notable life events.</p>
-            </div>
-        </section>
-
-        <section class="notes">
-            <h3>Notes</h3>
-            <ul id="notesList">
-                <!-- Notes will be dynamically added here -->
-            </ul>
-            <textarea id="noteInput" placeholder="Leave a note..."></textarea>
-            <button id="addNoteBtn">Add Note</button>
-        </section>
-
-        <!-- Edit Profile Form -->
-        <div id="editProfileForm" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Edit Profile</h2>
-                <form id="profileForm">
-                    <label for="nameInput">Name:</label>
-                    <input type="text" id="nameInput" required>
-                    
-                    <label for="aboutInput">About Me:</label>
-                    <textarea id="aboutInput" required></textarea>
-                    
-                    <label for="interestsInput">Interests:</label>
-                    <textarea id="interestsInput" required></textarea>
-                    
-                    <label for="projectsInput">Projects:</label>
-                    <textarea id="projectsInput" required></textarea>
-                    
-                    <label for="lifeEventsInput">Life Events:</label>
-                    <textarea id="lifeEventsInput" required></textarea>
-                    
-                    <button type="submit">Save Changes</button>
-                </form>
+                <p id="lifeEvents">Significant events in my life.</p>
             </div>
         </div>
+        <div class="notes">
+            <h3>Notes</h3>
+            <textarea id="noteInput" placeholder="Write a note..."></textarea>
+            <button id="addNoteBtn">Add Note</button>
+            <ul id="notesList"></ul>
+        </div>
     </main>
-
     <footer>
         <p>&copy; 2024 WikiMe. All rights reserved.</p>
     </footer>
+
+    <!-- Edit Profile Modal -->
+    <div id="editProfileForm" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="profileForm">
+                <label for="nameInput">Name:</label>
+                <input type="text" id="nameInput" name="name">
+                <label for="aboutInput">About Me:</label>
+                <textarea id="aboutInput" name="about"></textarea>
+                <label for="interestsInput">Interests:</label>
+                <textarea id="interestsInput" name="interests"></textarea>
+                <label for="projectsInput">Projects:</label>
+                <textarea id="projectsInput" name="projects"></textarea>
+                <label for="lifeEventsInput">Life Events:</label>
+                <textarea id="lifeEventsInput" name="lifeEvents"></textarea>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
