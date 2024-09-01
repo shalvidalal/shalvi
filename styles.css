@@ -3,16 +3,28 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(45deg, #6a1b9a, #ab47bc); /* Medium to Dark Purple Gradient */
+    background: linear-gradient(45deg, #2ecc71, #3498db); /* Medium to Dark Purple Gradient */
     color: #333;
 }
 
 header {
-    background: #333;
+    background: linear-gradient(45deg, #833ab4, #fd1d1d, #fcb045); /* Instagram gradient */
     color: #fff;
     padding: 1em;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+}
+
+.profile-pic:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+button:hover {
+    background: #ff6f61; /* Darker shade on hover for better visual feedback */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Elevate button on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    transition: all 0.3s ease; /* Smooth transition for all effects */
 }
 
 header h1 {
@@ -86,15 +98,24 @@ main {
 
 .profile h2 {
     margin: 0;
-    color: #6a1b9a; /* Purple color for profile name */
+    color: #111; /* Purple color for profile name */
+    font-family: 'Times New Roman', cursive; /* Fancy cursive font */
+    font-size: 2em; /* Increase the font size for emphasis */
+    text-align: center; /* Center the text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a subtle shadow for a 3D effect */
+    font-weight: bold;
 }
 
 .profile-pic {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 5px solid #ab47bc; /* Darker purple border */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    
+    margin: 0 auto;
+    display: block;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    border: none;
+
 }
 
 .profile-pic-preview {
